@@ -23,10 +23,11 @@ public class HumanPlayer extends Player {
 		Play p ;
 		Scanner sc = new Scanner(System.in);
 		do {
-			System.out.println(this.getPlayerName() + " please enter number between 1 and 10 ");
-			while (!sc.hasNextInt()) {
-				System.out.println("Invalid entry, ONLY integer value is accepted ");
-				sc.next();
+			/* If the user gives rubbish input, ask again --cm */
+			System.out.print(this.getPlayerName() + " please enter number fingers between 1 and 10: ");
+			while (!sc.hasNextInt() || sc.nextInt()<1 || sc.nextInt()>10) {
+				System.out.println("Invalid entry, ONLY integers {1-10} are accepted ");
+				sc.nextInt();
 			}
 		
 		 int play = sc.nextInt();
