@@ -21,9 +21,21 @@ public class HumanPlayer extends Player {
 	@Override
 	public Play Play() {
 		Play p ;
+		Scanner sc = new Scanner(System.in);
 		do {
-			Random rand = new Random(); // We need to change this to take input from console once we are happy with testing.
-			int play= rand.nextInt(10) + 1;
+			System.out.println(this.getPlayerName() + " please enter number between 1 and 10 ");
+			while (!sc.hasNextInt()) {
+				System.out.println("Invalid entry, ONLY integer value is accepted ");
+				sc.next();
+			}
+		
+		 int play = sc.nextInt();
+		 if (play <0)
+			 play *= -1;// to convert negative input to the positive value
+		
+		//int playAsType = tmp;
+			//int t = s.nextInt(); 
+			//int play= tmp;
 			p = new Play(play);
 		} while (!ValidPlay(p));
 		AddPlayHistory(p);

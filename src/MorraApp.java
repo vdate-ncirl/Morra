@@ -36,15 +36,27 @@ public class MorraApp {
 	public void init() {
 		System.out.println("Do you want to play as Even Or Odd. [Even Num entry -> Even Odd Num entry -> Odd]");
 		Scanner sc = new Scanner(System.in);
-		int playAsType = sc.nextInt();
+		
+
+		// to check only valid integer is considered
+		
+		while (!sc.hasNextInt()) {
+				System.out.println("Invalid entry, ONLY integer value is accepted ");
+				sc.next();
+			}
+		
+		 int tmp = sc.nextInt();
+		 if (tmp <0)
+			 tmp *= -1;// to convert negative input to the positive value
+		
+		int playAsType = tmp;
 		int h_playAsType = playAsType % 2;
 		int v_playAsType = (++playAsType) % 2;
 		h.setPlayAsType(h_playAsType);
 		v.setPlayAsType(v_playAsType);
 		System.out.println("Player " + " : " + h.getPlayerName() + " : " +  "Choosen Playtype "  + " : " + h.getPlayAsType());
 		System.out.println("Player " + " : " + v.getPlayerName() + " : " +  "Choosen Playtype "  + " : " + v.getPlayAsType());
-		sc.close(); //This is just a eclipse thingy kept on giving warning sc not closed :)
-	}
+		}
 	
 	/**
 	 * Runs a round of the Game.
