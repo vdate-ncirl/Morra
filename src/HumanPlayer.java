@@ -25,15 +25,18 @@ public class HumanPlayer extends Player {
 		do {
 			/* If the user gives rubbish input, ask again --cm */
 			System.out.print(this.getPlayerName() + " please enter number fingers between 1 and 10: ");
-			while (!sc.hasNextInt() || sc.nextInt()<1 || sc.nextInt()>10) {
-				System.out.println("Invalid entry, ONLY integers {1-10} are accepted ");
-				sc.nextInt();
+			while (!sc.hasNextInt()) {
+				System.out.println("Invalid entry, ONLY integers {1-10} accepted ");
+				sc.next();
 			}
 		
 		 int play = sc.nextInt();
 		 if (play <0)
 			 play *= -1;// to convert negative input to the positive value
-		
+		 if (play >10){ // if larger than 10, then change to modulus 10
+		System.out.println("You entered a value larger than 10 - Modulated.");
+			 play = play % 10;
+		 }
 		//int playAsType = tmp;
 			//int t = s.nextInt(); 
 			//int play= tmp;
