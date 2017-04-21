@@ -31,7 +31,7 @@ public class HumanPlayer extends Player {
 		Scanner sc = new Scanner(System.in);
 		do {
 			/* If the user gives rubbish input, ask again --cm */
-			System.out.print(this.getPlayerName() + "Pick a Number between 1 and 10(Duplicate lat Play would be rejected): ");
+			System.out.print(this.getPlayerName() + " pick a Number between 1 and 10(Duplicate last Play would be rejected): ");
 			while (!sc.hasNextInt()) {
 				System.out.println("Invalid entry, ONLY integers {1-10} accepted ");
 				sc.next();
@@ -41,10 +41,17 @@ public class HumanPlayer extends Player {
 			if (play < 0) {
 				play *= -1;// to convert negative input to the positive value
 				System.out.println("You entered a negetive value - But I am positve, I will the ignore negetive part");
-			}	
+			}
+			
 			if (play > 10) { // if larger than 10, then change to modulus 10
 				System.out.println("You entered a value larger than 10 - Modulated to Base 10.");
 				play = play % 10;
+			}
+			
+			if (play == 0 ) {
+				System.out.println("You picked 0, I will replace your play with a random pick");
+				Random rand = new Random(); 
+				play= rand.nextInt(10) + 1;
 			}
 			p = new Play(play);
 		} while (!ValidPlay(p));

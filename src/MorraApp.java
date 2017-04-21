@@ -46,17 +46,20 @@ public class MorraApp {
 				sc.next();
 			}
 		
-		 int tmp = sc.nextInt();
-		 if (tmp <0)
-			 tmp *= -1;// to convert negative input to the positive value
+		 int tmp  = sc.nextInt();
+		 if (tmp < 0 ) {
+			 System.out.println("I will be positive, discarding negetive part\n");
+			 tmp *= -1; // to convert negative input to the positive value
+		 }
 		
 		int playAsType = tmp;
 		int h_playAsType = playAsType % 2;
 		int v_playAsType = (++playAsType) % 2;
 		h.setPlayAsType(h_playAsType);
 		v.setPlayAsType(v_playAsType);
-		System.out.println("Player " + " : " + h.getPlayerName() + " : " +  "Choosen Playtype "  + " : " + h.getPlayAsType());
-		System.out.println("Player " + " : " + v.getPlayerName() + " : " +  "Choosen Playtype "  + " : " + v.getPlayAsType());
+		System.out.println("Player " + " : " + h.getPlayerName() + " : " +  "Choosen play type "  + " : " + h.getPlayAsType());
+		System.out.println("Player " + " : " + v.getPlayerName() + " : " +  "Choosen play type "  + " : " + v.getPlayAsType());
+		System.out.println();
 		}
 	
 	/**
