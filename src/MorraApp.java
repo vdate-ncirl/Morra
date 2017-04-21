@@ -98,6 +98,11 @@ public class MorraApp {
 		  }
 		GameHistory.add(g);
 	}
+	/**
+	 * Compares scores between two players and sets the winner player.
+	 * @param g Game array for both players.
+	 * @return boolean true if winner found.
+	 */
     public boolean isWinner(Game [] g){
    	 Winner = null ;
    	 for (int i = 0 ; i < g.length ; i++) {
@@ -108,6 +113,9 @@ public class MorraApp {
    	 return false;
     }
     
+    /**
+     * Prints Winner Player to Console.
+     */
     public void DisplayWinner() {
     	if (Winner != null) System.out.println("Bingo we have winner as "+ Winner.getPlayerName());
     }
