@@ -107,14 +107,24 @@ public class MorraApp {
 	 * @return boolean true if winner found.
 	 */
     public boolean isWinner(Game [] g){
-   	 Winner = null ;
-   	 for (int i = 0 ; i < g.length ; i++) {
-   		 if ((totalScore(g[i].getPlayer()) >= Constants.MAXSCORE))
-   		 Winner = g[i].getPlayer();
-   		 if (Winner != null) return true ;
-   		 }
-   	 return false;
+    	Winner = null ;
+   	 	int h_totalScore = totalScore(h);
+   	 	int v_totalScore = totalScore(v);
+   	 	if(h_totalScore == v_totalScore) return false;
+   	 
+   	 	if( (h_totalScore >= Constants.MAXSCORE) && (h_totalScore > v_totalScore)){
+   		 Winner = h;
+   		 return true;
+   	 	}
+   	 
+   	 	if( (v_totalScore >= Constants.MAXSCORE) && (v_totalScore > h_totalScore)){
+  		 Winner = v;
+  		 return true;
+   	 	}
+   	 	return false;
     }
+  	
+   	 
     
     /**
      * Prints Winner Player to Console.
