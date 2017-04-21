@@ -27,4 +27,14 @@ public class Play {
 	public int getplay(){
 		return play;
 	}
+	
+	/**
+	 * Compares Play object with itself , returns true if equal.
+	 * @param p - Play Object to Compare
+	 * @return returns true if equal.
+	 */
+	public boolean isEqual(Play p){
+		if (this.play == p.play) return true;
+		return false;
+	}
 }

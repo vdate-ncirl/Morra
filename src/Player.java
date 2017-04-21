@@ -42,12 +42,13 @@ public abstract class Player {
 	
 	/**
 	 * This function checks that previous play is not as this play. This is to make game fair and not pick same number over and over.
-	 * @param p This Play
+	 * @param p curr play
 	 * @return boolean true if this play is not same as previous play.
 	 */
 	public boolean ValidPlay(Play p) {
-		if ( p != getLastPlay()) return true;
-		return false;
+		Play lastPlay = this.getLastPlay();
+		if (lastPlay == null) return true;
+		return (!lastPlay.isEqual(p));
 	}
 	/**
 	 * Store the Play in PlayHistory, To keep History of each session Play.
