@@ -39,11 +39,13 @@ public class Morra {
 	public static void main(String[] args) {
 		MorraApp mApp = new MorraApp(Constants.HUMANPLAYER, Constants.VIRTUALPLAYER);
 		mApp.init();
-		int i = 0;
+		boolean foundWinner;
 		do{
 			Game[] g = mApp.RunGameRound();
 			mApp.ComputeAndSaveResult(g);
 			mApp.DisplayResults();
-		}while (i++ < 2);
+			foundWinner = mApp.isWinner(g);
+		}while (!foundWinner);
+		mApp.DisplayWinner();
 	}
 }

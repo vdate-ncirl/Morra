@@ -62,5 +62,6 @@ public class Game {
 		
 		int sumPlayType  = sum % 2;
 		if (myPlayType == sumPlayType) 	score += Constants.GAMEPOINTS;
+		if (myPlay > otherPlay) score += Constants.BONUSPOINT;
 	}
 }

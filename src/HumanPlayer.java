@@ -37,10 +37,12 @@ public class HumanPlayer extends Player {
 			}
 
 			int play = sc.nextInt();
-			if (play < 0)
+			if (play < 0) {
 				play *= -1;// to convert negative input to the positive value
+				System.out.println("You entered a negetive value - But I am positve, I will the ignore negetive part");
+			}	
 			if (play > 10) { // if larger than 10, then change to modulus 10
-				System.out.println("You entered a value larger than 10 - Modulated.");
+				System.out.println("You entered a value larger than 10 - Modulated to Base 10.");
 				play = play % 10;
 			}
 			// int playAsType = tmp;

@@ -15,9 +15,9 @@ public class Constants {
 	public static final int GAMEPOINTS = 2;
 	
 	/** Friendly name for Human player */
-	public static final String HUMANPLAYER = "me";
+	public static final String HUMANPLAYER = "PLYR";
 	
 	/** Friendly name for Vitrual player */
-	public static final String VIRTUALPLAYER = "mac";
+	public static final String VIRTUALPLAYER = "CPU";
 	
 }

@@ -7,7 +7,6 @@ public abstract class Player {
 	private String playerName;
 	private int playAsType;
 	private ArrayList<Play> playHistory = new ArrayList<Play>();
-	private int totalScore;
 	
 	/**
 	 * Construct Player object with playerName

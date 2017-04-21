@@ -9,6 +9,7 @@ import java.util.*;
 public class MorraApp {
 	private Player h; // Reference for Player (human) 
 	private Player v; //  Reference for Virtual Player (computer)
+	private Player Winner ; // Reference to Winner
 	private ArrayList<Game[]> GameHistory ; //Two Dimensional Array row represents each session, each Column represent Game object for each player
 	/**
 	 * Constructor to create MorraApp object. The Constructor sets Name's for PLayer. 
@@ -34,7 +35,7 @@ public class MorraApp {
 	 * The other player is automatically set to even. and visa versa.
 	 */
 	public void init() {
-		System.out.println("Do you want to play as Even Or Odd. [Even Num entry -> Even Odd Num entry -> Odd]");
+		System.out.println("Ola, Do you want to play as Even Or Odd. [Even Num entry selects Even,  Odd Num entry selects Odd]");
 		Scanner sc = new Scanner(System.in);
 		
 
@@ -97,6 +98,19 @@ public class MorraApp {
 		  }
 		GameHistory.add(g);
 	}
+    public boolean isWinner(Game [] g){
+   	 Winner = null ;
+   	 for (int i = 0 ; i < g.length ; i++) {
+   		 if ((totalScore(g[i].getPlayer()) >= Constants.MAXSCORE))
+   		 Winner = g[i].getPlayer();
+   		 if (Winner != null) return true ;
+   		 }
+   	 return false;
+    }
+    
+    public void DisplayWinner() {
+    	if (Winner != null) System.out.println("Bingo we have winner as "+ Winner.getPlayerName());
+    }
 
 	/**
 	 * 
@@ -123,16 +137,17 @@ public class MorraApp {
 	 * Finally also displays total score for each player.
 	 */
 	public void DisplayResults() {
-		System.out.println("\nPlayer\tPlay\tscore\tPlayer\tPlay\tscore");
+		System.out.println("\nRound\tPlayer\tPlay\tscore\tRound\tPlayer\tPlay\tscore");
 		
 		for (int i = 0 ; i < GameHistory.size() ; i++) {
 			Game [] g = GameHistory.get(i);
 			for (int j = 0  ; j < g.length ; j++) {
-				System.out.print(g[j].getPlayer().getPlayerName()  +"\t" + g[j].getPlay().getplay() +"\t" + g[j].getScore() +"\t");
+				System.out.print((i+1) + "\t" + g[j].getPlayer().getPlayerName()  +"\t" + g[j].getPlay().getplay() +"\t" + g[j].getScore() +"\t");
 			}
 			System.out.println();
 		}
 	System.out.println("Total Score for " + h.getPlayerName() + " " + totalScore(h));
 	System.out.println("Total Score for " + v.getPlayerName() + " " + totalScore(v));
+	System.out.println();
 	}
 }
