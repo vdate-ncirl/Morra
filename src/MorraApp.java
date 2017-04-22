@@ -35,7 +35,7 @@ public class MorraApp {
 	 * The other player is automatically set to even. and visa versa.
 	 */
 	public void init() {
-		System.out.println("Ola, Do you want to play as Even Or Odd. [Even Num entry selects Even,  Odd Num entry selects Odd]");
+		System.out.println("!!! Ola !!! \nDo you want to play as Even Or Odd ?\n\nHint: 'Even Number entry selects Even', Odd Number entry selects 'Odd'");
 		Scanner sc = new Scanner(System.in);
 		
 
@@ -48,7 +48,7 @@ public class MorraApp {
 		
 		 int tmp  = sc.nextInt();
 		 if (tmp < 0 ) {
-			 System.out.println("I will be positive, discarding negetive part\n");
+			 System.out.println("I will be positive, discarding negative part\n");
 			 tmp *= -1; // to convert negative input to the positive value
 		 }
 		
@@ -57,8 +57,8 @@ public class MorraApp {
 		int v_playAsType = (++playAsType) % 2;
 		h.setPlayAsType(h_playAsType);
 		v.setPlayAsType(v_playAsType);
-		System.out.println("Player " + " : " + h.getPlayerName() + " : " +  "Choosen play type "  + " : " + h.getPlayAsType());
-		System.out.println("Player " + " : " + v.getPlayerName() + " : " +  "Choosen play type "  + " : " + v.getPlayAsType());
+		System.out.println("Player " + " : " + h.getPlayerName() + " : " +  "Chosen play type "  + " : " + h.getPlayAsType());
+		System.out.println("Player " + " : " + v.getPlayerName() + " : " +  "Chosen play type "  + " : " + v.getPlayAsType());
 		System.out.println();
 		}
 	

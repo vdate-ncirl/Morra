@@ -1,6 +1,7 @@
 
 /**
- * This Class is session class for a player, keeps track of player, the play player played and total score for player
+ * This Class is session class for a player, 
+ * keeps track of player,  the play  and total score for player
  */
 public class Game {
 	

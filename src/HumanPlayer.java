@@ -40,7 +40,7 @@ public class HumanPlayer extends Player {
 			play = sc.nextInt();
 			if (play < 0) {
 				play *= -1;// to convert negative input to the positive value
-				System.out.println("You entered a negetive value - But I am positve, I will the ignore negetive part");
+				System.out.println("You entered a negative value - But I am positive, I will the ignore negative part");
 			}
 			
 			if (play > 10) { // if larger than 10, then change to modulus 10
